@@ -3,7 +3,7 @@ const uniswapsdk = require('@uniswap/v3-sdk');
 const JSBI = require('jsbi');
 const ZERO = JSBI.BigInt(0)
 const { log } = require('mathjs');
-const { liqudity } = require('./liqudity');
+const liqudity = require('./liqudity');
 
 
 function amount0(token0, tickCurrent, tickLower, tickUpper, liquidity, sqrtRatioX96) {
@@ -89,11 +89,10 @@ function main() {
     var tickPrice2 = uniswapsdk.tickToPrice(token0, token1, 81200)
     console.log("tickPrice2 : " + tickPrice2.toFixed(4));
 
-    liqudity.oneFunction()
-
     var mushPoolAddress = "0x5116f278d095ec2ad3a14090fedb3e499b8b5af6"
-    var result = liqudity.fetchTicksSurroundingPrice(mushPoolAddress);
-    console.log("result: " + JSON.stringify(result))
+    var result = liqudity.fetchTicksFormattedData(mushPoolAddress);
+
+    console.log("Result: " + JSON.stringify(result))
 }
 
 main()

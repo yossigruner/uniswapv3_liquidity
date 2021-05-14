@@ -336,13 +336,8 @@ async function formattedData(poolTickData) {
     return undefined
 }
 
-async function main() {
-    var mushPoolAddress = "0x5116f278d095ec2ad3a14090fedb3e499b8b5af6"
-    var poolTickData = await fetchTicksSurroundingPrice(mushPoolAddress, DEFAULT_SURROUNDING_TICKS);
+module.exports.fetchTicksFormattedData = async function (poolAddress) {
+    var poolTickData = await fetchTicksSurroundingPrice(poolAddress, DEFAULT_SURROUNDING_TICKS);
     var formattedDatResult = await formattedData(poolTickData.data)
-
-    console.log(JSON.stringify(formattedDatResult));
+    return formattedDatResult;
 }
-
-
-main();
