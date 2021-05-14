@@ -336,7 +336,7 @@ async function formattedData(poolTickData) {
     return undefined
 }
 
-module.exports.fetchTicksFormattedData = async function (poolAddress) {
+module.exports.fetchTicksFormattedDataFromPool = async function (poolAddress) {
     var poolTickData = await fetchTicksSurroundingPrice(poolAddress, DEFAULT_SURROUNDING_TICKS);
     var formattedDatResult = await formattedData(poolTickData.data)
     return formattedDatResult;

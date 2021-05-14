@@ -57,7 +57,7 @@ function amount1(token1, tickCurrent, tickLower, tickUpper, liquidity, sqrtRatio
     }
 }
 
-function main() {
+async function main() {
 
     var addressToken0 = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2";
     var addressToken1 = "0xea6412Fb370e8d1605E6aEeAA21aD07C3C7e9F24";
@@ -90,7 +90,7 @@ function main() {
     console.log("tickPrice2 : " + tickPrice2.toFixed(4));
 
     var mushPoolAddress = "0x5116f278d095ec2ad3a14090fedb3e499b8b5af6"
-    var result = liqudity.fetchTicksFormattedData(mushPoolAddress);
+    var result = await liqudity.fetchTicksFormattedDataFromPool(mushPoolAddress);
 
     console.log("Result: " + JSON.stringify(result))
 }
